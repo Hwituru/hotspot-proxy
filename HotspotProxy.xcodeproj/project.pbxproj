@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04132E1E3C6DFAEC654E76C7 /* HotspotProxyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E29580C30F8C16E47CEC22 /* HotspotProxyWidget.swift */; };
+		08C572E631BBF63AF8F91023 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDCD660594639D3D9F882EA /* Colors.xcassets */; };
+		0E7A9B5A633684B3F440ADE5 /* ProxySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685249830A47FFC8CF96F391 /* ProxySnapshot.swift */; };
+		10523A8352AF485D84968D3F /* ProxyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF04672F9BAF3B599B4E380 /* ProxyModel.swift */; };
+		28F0D1BB853BAC708550EB53 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25F709F72F48297DD484188 /* WidgetViews.swift */; };
+		318004E1BE5E500A4D636D4C /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAFA8CB89F9CE31CDF5E2F7 /* Tokens.swift */; };
+		395EEFE53D743230CEC32027 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAA0DBC0F34FCFA39BE48F3 /* Components.swift */; };
+		4110A5E873CE4424DAD67496 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59CA69A7B44C7EB24E92CB /* App.swift */; };
+		55E04E0DFD02E54DC56B88FE /* GuideViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D833C839115F331F46F629 /* GuideViews.swift */; };
+		9B4697370E66C5919B714114 /* KeepAlive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEFEE192E4A48C068D10C3 /* KeepAlive.swift */; };
+		9C2C609F228C1C3E34D4E926 /* ProxyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422803A94436C3FB9843B3C /* ProxyServer.swift */; };
+		A1A9BEBCD00F2B361C8A17B1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCAA0E4CE1CD5C5BD23C24D /* SettingsView.swift */; };
+		ACD3D19D020F5305FF4DF413 /* UdpRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D9E0ABE3EE2045CD0CE75 /* UdpRelay.swift */; };
+		B47852E9ECE7C387AECB54EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDCD660594639D3D9F882EA /* Colors.xcassets */; };
+		CC1891077B0C495F98DCDC2C /* HotspotProxyWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4FFB0C064BC5DC0E82C76A0F /* HotspotProxyWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE318B6B45B4940DD1A0395F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64CB9A5259D4531969FFF99 /* MainView.swift */; };
+		D892D5D1F18F71C2A94945DB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E27382801AFBCE50C0184 /* OnboardingView.swift */; };
+		E9F4D3D42D539B1043821B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43A3F1C4224922B36DF7D20 /* Assets.xcassets */; };
+		EA1BFCFD08B7579BAE4F121E /* ProxySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685249830A47FFC8CF96F391 /* ProxySnapshot.swift */; };
+		ED7AE74822802B0C625D0E1B /* StatusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4878093BCC8426A1703FA /* StatusStyle.swift */; };
+		F3E1039C005985388D64C3C2 /* StatusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4878093BCC8426A1703FA /* StatusStyle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE6D7E9E3A8F410D5853B3A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7277FB64594B8E30D20977FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46170FD03D9E833E5A3AD3C0;
+			remoteInfo = HotspotProxyWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC4D6D078E03D70F2A271BA7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CC1891077B0C495F98DCDC2C /* HotspotProxyWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		15E672D68B40DFAA7219AA39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		174E27382801AFBCE50C0184 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		1C0C0B6F894A8C834C9AC00E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1D59CA69A7B44C7EB24E92CB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2FB4878093BCC8426A1703FA /* StatusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStyle.swift; sourceTree = "<group>"; };
+		348F0D871998B1CDD69F7AEA /* HotspotProxy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HotspotProxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E29580C30F8C16E47CEC22 /* HotspotProxyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotProxyWidget.swift; sourceTree = "<group>"; };
+		44D833C839115F331F46F629 /* GuideViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViews.swift; sourceTree = "<group>"; };
+		4FFB0C064BC5DC0E82C76A0F /* HotspotProxyWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = HotspotProxyWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FAFA8CB89F9CE31CDF5E2F7 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		5FDCD660594639D3D9F882EA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		685249830A47FFC8CF96F391 /* ProxySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxySnapshot.swift; sourceTree = "<group>"; };
+		6F5D9E0ABE3EE2045CD0CE75 /* UdpRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdpRelay.swift; sourceTree = "<group>"; };
+		7BF04672F9BAF3B599B4E380 /* ProxyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyModel.swift; sourceTree = "<group>"; };
+		9CCAA0E4CE1CD5C5BD23C24D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A43A3F1C4224922B36DF7D20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A64CB9A5259D4531969FFF99 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CFAA0DBC0F34FCFA39BE48F3 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		D422803A94436C3FB9843B3C /* ProxyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyServer.swift; sourceTree = "<group>"; };
+		D4AEFEE192E4A48C068D10C3 /* KeepAlive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAlive.swift; sourceTree = "<group>"; };
+		F25F709F72F48297DD484188 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		066FA1BFF7F401459CB52E2F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A43A3F1C4224922B36DF7D20 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		205C77166BC1AA903C012EC9 = {
+			isa = PBXGroup;
+			children = (
+				066FA1BFF7F401459CB52E2F /* Resources */,
+				7574FDEA448E780C8E653565 /* Shared */,
+				34F095032473ED9BA3CBF4CE /* Sources */,
+				BB1C278062E3BBE7DA95DF60 /* Widget */,
+				A7CE8AE44C422F751D0A2961 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DD28E295D1697F235407F2B /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				CFAA0DBC0F34FCFA39BE48F3 /* Components.swift */,
+				5FAFA8CB89F9CE31CDF5E2F7 /* Tokens.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		34F095032473ED9BA3CBF4CE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1D59CA69A7B44C7EB24E92CB /* App.swift */,
+				15E672D68B40DFAA7219AA39 /* Info.plist */,
+				D4AEFEE192E4A48C068D10C3 /* KeepAlive.swift */,
+				D422803A94436C3FB9843B3C /* ProxyServer.swift */,
+				6F5D9E0ABE3EE2045CD0CE75 /* UdpRelay.swift */,
+				2DD28E295D1697F235407F2B /* Design */,
+				97E934FBC9FCA4CB67FDB7FA /* Model */,
+				EF2C514C13B9EC0DD335CC36 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7574FDEA448E780C8E653565 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5FDCD660594639D3D9F882EA /* Colors.xcassets */,
+				685249830A47FFC8CF96F391 /* ProxySnapshot.swift */,
+				2FB4878093BCC8426A1703FA /* StatusStyle.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		97E934FBC9FCA4CB67FDB7FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BF04672F9BAF3B599B4E380 /* ProxyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7CE8AE44C422F751D0A2961 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				348F0D871998B1CDD69F7AEA /* HotspotProxy.app */,
+				4FFB0C064BC5DC0E82C76A0F /* HotspotProxyWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB1C278062E3BBE7DA95DF60 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				41E29580C30F8C16E47CEC22 /* HotspotProxyWidget.swift */,
+				1C0C0B6F894A8C834C9AC00E /* Info.plist */,
+				F25F709F72F48297DD484188 /* WidgetViews.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		EF2C514C13B9EC0DD335CC36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44D833C839115F331F46F629 /* GuideViews.swift */,
+				A64CB9A5259D4531969FFF99 /* MainView.swift */,
+				174E27382801AFBCE50C0184 /* OnboardingView.swift */,
+				9CCAA0E4CE1CD5C5BD23C24D /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46170FD03D9E833E5A3AD3C0 /* HotspotProxyWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A760BD3307F06D5F59649781 /* Build configuration list for PBXNativeTarget "HotspotProxyWidget" */;
+			buildPhases = (
+				134FA26DA935B985C1AF6D69 /* Sources */,
+				39FB53EFB5A3A393AB7A1456 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotspotProxyWidget;
+			packageProductDependencies = (
+			);
+			productName = HotspotProxyWidget;
+			productReference = 4FFB0C064BC5DC0E82C76A0F /* HotspotProxyWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B286AFD794504CA2BB22659A /* HotspotProxy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2D67DABE9B2A36408530887 /* Build configuration list for PBXNativeTarget "HotspotProxy" */;
+			buildPhases = (
+				5B8F1B0E67F4C8222065B2AB /* Sources */,
+				8D065B6351B957368D93E4C2 /* Resources */,
+				AC4D6D078E03D70F2A271BA7 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				797548EF859B9D19B81E1FB2 /* PBXTargetDependency */,
+			);
+			name = HotspotProxy;
+			packageProductDependencies = (
+			);
+			productName = HotspotProxy;
+			productReference = 348F0D871998B1CDD69F7AEA /* HotspotProxy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7277FB64594B8E30D20977FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					46170FD03D9E833E5A3AD3C0 = {
+						DevelopmentTeam = 5DUM8WPB4C;
+						ProvisioningStyle = Automatic;
+					};
+					B286AFD794504CA2BB22659A = {
+						DevelopmentTeam = 5DUM8WPB4C;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F3AEC890F69E2F9113564AB6 /* Build configuration list for PBXProject "HotspotProxy" */;
+			developmentRegion = ko;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				ko,
+			);
+			mainGroup = 205C77166BC1AA903C012EC9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A7CE8AE44C422F751D0A2961 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B286AFD794504CA2BB22659A /* HotspotProxy */,
+				46170FD03D9E833E5A3AD3C0 /* HotspotProxyWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39FB53EFB5A3A393AB7A1456 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47852E9ECE7C387AECB54EB /* Colors.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D065B6351B957368D93E4C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9F4D3D42D539B1043821B87 /* Assets.xcassets in Resources */,
+				08C572E631BBF63AF8F91023 /* Colors.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		134FA26DA935B985C1AF6D69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04132E1E3C6DFAEC654E76C7 /* HotspotProxyWidget.swift in Sources */,
+				0E7A9B5A633684B3F440ADE5 /* ProxySnapshot.swift in Sources */,
+				ED7AE74822802B0C625D0E1B /* StatusStyle.swift in Sources */,
+				28F0D1BB853BAC708550EB53 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8F1B0E67F4C8222065B2AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4110A5E873CE4424DAD67496 /* App.swift in Sources */,
+				395EEFE53D743230CEC32027 /* Components.swift in Sources */,
+				55E04E0DFD02E54DC56B88FE /* GuideViews.swift in Sources */,
+				9B4697370E66C5919B714114 /* KeepAlive.swift in Sources */,
+				CE318B6B45B4940DD1A0395F /* MainView.swift in Sources */,
+				D892D5D1F18F71C2A94945DB /* OnboardingView.swift in Sources */,
+				10523A8352AF485D84968D3F /* ProxyModel.swift in Sources */,
+				9C2C609F228C1C3E34D4E926 /* ProxyServer.swift in Sources */,
+				EA1BFCFD08B7579BAE4F121E /* ProxySnapshot.swift in Sources */,
+				A1A9BEBCD00F2B361C8A17B1 /* SettingsView.swift in Sources */,
+				F3E1039C005985388D64C3C2 /* StatusStyle.swift in Sources */,
+				318004E1BE5E500A4D636D4C /* Tokens.swift in Sources */,
+				ACD3D19D020F5305FF4DF413 /* UdpRelay.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		797548EF859B9D19B81E1FB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46170FD03D9E833E5A3AD3C0 /* HotspotProxyWidget */;
+			targetProxy = BE6D7E9E3A8F410D5853B3A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3F3CFFEA20FADCE11E0A01EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Config/HotspotProxyWidget.entitlements;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indoyoon.hotspotproxy.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5E4DF09CB08F45D84F45E39C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Config/HotspotProxyWidget.entitlements;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indoyoon.hotspotproxy.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		645836D45087547A3667437F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/HotspotProxy.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indoyoon.hotspotproxy;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B1846A23475123DF5F3D825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5DUM8WPB4C;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		964DE42BE02B60F100055CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/HotspotProxy.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.indoyoon.hotspotproxy;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E4C64D6DD8928B80CDBF4DBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5DUM8WPB4C;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A760BD3307F06D5F59649781 /* Build configuration list for PBXNativeTarget "HotspotProxyWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E4DF09CB08F45D84F45E39C /* Debug */,
+				3F3CFFEA20FADCE11E0A01EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C2D67DABE9B2A36408530887 /* Build configuration list for PBXNativeTarget "HotspotProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				645836D45087547A3667437F /* Debug */,
+				964DE42BE02B60F100055CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F3AEC890F69E2F9113564AB6 /* Build configuration list for PBXProject "HotspotProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1846A23475123DF5F3D825 /* Debug */,
+				E4C64D6DD8928B80CDBF4DBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7277FB64594B8E30D20977FC /* Project object */;
+}
