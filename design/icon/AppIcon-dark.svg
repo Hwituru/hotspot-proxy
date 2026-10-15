@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14211E"/><stop offset="1" stop-color="#000000"/></linearGradient>
+ <linearGradient id="gl" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#7DF2E1"/><stop offset="1" stop-color="#1FB5A2"/></linearGradient>
+ <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="26" flood-color="#33D6C2" flood-opacity="0.45"/></filter>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<g filter="url(#glow)">
+  <g transform="translate(512 548)" fill="none" stroke-linecap="round">
+    <path d="M -118 -24 A 128 128 0 0 1 118 -24" stroke="url(#gl)" stroke-width="44" opacity="1" transform="translate(0 -40)"/>
+    <path d="M -206 -40 A 230 230 0 0 1 206 -40" stroke="url(#gl)" stroke-width="44" opacity="0.78" transform="translate(0 -70)"/>
+    <path d="M -292 -58 A 330 330 0 0 1 292 -58" stroke="url(#gl)" stroke-width="44" opacity="0.55" transform="translate(0 -98)"/>
+    <circle cx="0" cy="40" r="74" fill="url(#gl)"/>
+    <rect x="-22" y="96" width="44" height="150" rx="22" fill="url(#gl)"/>
+  </g></g>
+</svg>
