@@ -231,11 +231,11 @@
 				};
 			};
 			buildConfigurationList = F3AEC890F69E2F9113564AB6 /* Build configuration list for PBXProject "HotspotProxy" */;
-			developmentRegion = ko;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
-				ko,
+				en,
 			);
 			mainGroup = 205C77166BC1AA903C012EC9;
 			minimizedProjectReferenceProxies = 1;
