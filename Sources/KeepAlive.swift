@@ -1,6 +1,6 @@
 import AVFoundation
 
-/// 무음 오디오를 루프 재생해 백그라운드에서도 앱(=프록시)이 살아있게 한다.
+/// Loops silent audio so the app (and the proxy) stays alive in the background.
 final class KeepAlive {
     private var player: AVAudioPlayer?
 
@@ -30,7 +30,7 @@ final class KeepAlive {
         try? AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
     }
 
-    /// 길고(30초) 저샘플레이트(8kHz 8bit) 무음 → 루프 경계 웨이크업 최소화
+    /// Long (30s), low-rate (8kHz 8-bit) silence minimizes wakeups at loop boundaries.
     private static func silentWav(seconds: Int = 30, rate: Int = 8000) -> Data {
         let samples = seconds * rate
         var d = Data()

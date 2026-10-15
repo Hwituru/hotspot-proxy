@@ -26,8 +26,8 @@ struct HotspotStatusWidget: Widget {
         StaticConfiguration(kind: SharedStore.widgetKind, provider: StatusProvider()) { entry in
             EntryView(entry: entry)
         }
-        .configurationDisplayName("프록시 상태")
-        .description("핫스팟 프록시 상태와 접속 주소를 보여줍니다.")
+        .configurationDisplayName("Proxy Status")
+        .description("Shows Hotspot Proxy status and the address to connect to.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline, .systemSmall])
     }
 }

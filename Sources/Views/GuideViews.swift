@@ -7,56 +7,56 @@ struct ConnectGuideView: View {
         List {
             Section {
                 if let ip = m.hotspotIP {
-                    CopyableRow(title: "서버", value: ip)
+                    CopyableRow(title: "Server", value: ip)
                 } else {
-                    LabeledContent("서버", value: "핫스팟 꺼짐 (보통 172.20.10.1)")
+                    LabeledContent("Server", value: "Hotspot off (usually 172.20.10.1)")
                 }
-                CopyableRow(title: "포트", value: String(m.port))
+                CopyableRow(title: "Port", value: String(m.port))
             } header: {
-                Text("입력할 값")
+                Text("Values to Enter")
             } footer: {
-                Text("HTTP · HTTPS · SOCKS5 모두 같은 서버와 포트를 씁니다.")
+                Text("HTTP, HTTPS, and SOCKS5 all use the same server and port.")
             }
 
             Section("iPhone · iPad") {
-                SetupStep(number: 1, title: "핫스팟 Wi-Fi에 연결", detail: "설정 › Wi-Fi에서 이 아이폰의 핫스팟을 선택합니다.")
-                SetupStep(number: 2, title: "네트워크 정보 열기", detail: "연결된 네트워크 옆의 (i) 버튼을 누릅니다.")
-                SetupStep(number: 3, title: "프록시 구성 › 수동", detail: "서버와 포트를 위 값으로 입력하고 저장합니다.")
+                SetupStep(number: 1, title: "Join the Hotspot", detail: "In Settings › Wi-Fi, choose this iPhone’s hotspot.")
+                SetupStep(number: 2, title: "Open Network Info", detail: "Tap the (i) button next to the joined network.")
+                SetupStep(number: 3, title: "Configure Proxy › Manual", detail: "Enter the server and port above, then Save.")
             }
             Section("macOS") {
-                SetupStep(number: 1, title: "시스템 설정 › 네트워크 › Wi-Fi", detail: "연결된 핫스팟의 ‘세부사항…’을 누릅니다.")
-                SetupStep(number: 2, title: "프록시 탭", detail: "웹 프록시(HTTP), 보안 웹 프록시(HTTPS), SOCKS 프록시를 켜고 서버와 포트를 입력합니다.")
-                SetupStep(number: 3, title: "또는 자동 TUN", detail: "모든 앱 트래픽을 자동으로 넘기려면 ‘Mac 자동 연결’ 안내를 따르세요.")
+                SetupStep(number: 1, title: "System Settings › Network › Wi-Fi", detail: "Click ‘Details…’ on the joined hotspot.")
+                SetupStep(number: 2, title: "Proxies Tab", detail: "Enable Web (HTTP), Secure Web (HTTPS), and SOCKS proxies with the server and port.")
+                SetupStep(number: 3, title: "Or Use Auto TUN", detail: "To route every app automatically, follow the ‘Mac Auto-Connect’ guide.")
             }
             Section("Android") {
-                SetupStep(number: 1, title: "Wi-Fi 네트워크 길게 누르기", detail: "네트워크 수정 › 고급 옵션 › 프록시 › 수동.")
-                SetupStep(number: 2, title: "호스트와 포트 입력", detail: "위 서버와 포트를 입력하고 저장합니다.")
+                SetupStep(number: 1, title: "Long-Press the Wi-Fi Network", detail: "Modify network › Advanced options › Proxy › Manual.")
+                SetupStep(number: 2, title: "Enter Host and Port", detail: "Use the server and port above, then Save.")
             }
             Section("Windows") {
-                SetupStep(number: 1, title: "설정 › 네트워크 및 인터넷 › 프록시", detail: "수동 프록시 설정 › 프록시 서버 사용을 켭니다.")
-                SetupStep(number: 2, title: "주소와 포트 입력", detail: "위 서버와 포트를 입력하고 저장합니다.")
+                SetupStep(number: 1, title: "Settings › Network & Internet › Proxy", detail: "Under Manual proxy setup, turn on Use a proxy server.")
+                SetupStep(number: 2, title: "Enter Address and Port", detail: "Use the server and port above, then Save.")
             }
         }
-        .navigationTitle("연결 방법")
+        .navigationTitle("Connect Devices")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct MacSetupView: View {
     private let commands: [(String, String)] = [
-        ("sing-box 설치", "brew install sing-box"),
-        ("자동 TUN 설치", "sudo bash mac/install.sh"),
-        ("제거", "sudo bash mac/uninstall.sh"),
-        ("Tailscale CLI 전환 (선택)", "sudo bash mac/install-tailscale.sh"),
+        ("Install sing-box", "brew install sing-box"),
+        ("Install auto TUN", "sudo bash mac/install.sh"),
+        ("Uninstall", "sudo bash mac/uninstall.sh"),
+        ("Switch Tailscale to CLI (optional)", "sudo bash mac/install-tailscale.sh"),
     ]
 
     var body: some View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: Space.s) {
-                    Label("작동 방식", systemImage: "bolt.horizontal.circle")
+                    Label("How It Works", systemImage: "bolt.horizontal.circle")
                         .font(.headline)
-                    Text("Mac이 아이폰 핫스팟(172.20.10.x)에 붙고 이 앱의 프록시(172.20.10.1:8080)가 응답하면, sing-box TUN이 자동으로 켜져 모든 트래픽을 프록시로 보냅니다. 핫스팟을 떠나면 자동으로 꺼지고 DNS도 원래대로 돌아갑니다.")
+                    Text("When your Mac joins the iPhone hotspot (172.20.10.x) and this app’s proxy (172.20.10.1:8080) responds, a sing-box TUN turns on and sends all traffic through the proxy. Leave the hotspot and it turns off and restores DNS.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
@@ -68,12 +68,12 @@ struct MacSetupView: View {
                     CopyableRow(title: c.0, value: c.1)
                 }
             } header: {
-                Text("터미널 명령")
+                Text("Terminal Commands")
             } footer: {
-                Text("저장소의 mac/ 디렉터리에서 실행합니다. 네트워크가 바뀔 때와 30초마다 상태를 확인합니다.")
+                Text("Run from the repo’s mac/ directory. It re-checks on every network change and every 30 seconds.")
             }
         }
-        .navigationTitle("Mac 자동 연결")
+        .navigationTitle("Mac Auto-Connect")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

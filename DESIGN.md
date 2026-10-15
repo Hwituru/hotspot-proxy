@@ -76,12 +76,12 @@ Each component lives in `Sources/Design/Components.swift`.
 
 ### StatusHero (card)
 - **Structure**: SignalRing, status title, endpoint (IP:port, mono, large), copy button, supporting line.
-- **States**: running, noHotspot (endpoint replaced by "핫스팟을 켜세요" and a button that opens Settings), stopped, error (message + retry).
+- **States**: running, noHotspot (endpoint replaced by "Turn On Personal Hotspot" and a button that opens Settings), stopped, error (message + retry).
 - **Surface**: `secondarySystemGroupedBackground`, radius `Radius.card` (22), with a HeroTint wash while running.
-- **Accessibility**: the combined element reads "프록시 실행 중, 172.20.10.1 포트 8080". The copy button is labeled "주소 복사".
+- **Accessibility**: the combined element reads "Proxy Running, Proxy address 172.20.10.1 port 8080". The copy button is labeled "Copy address".
 
 ### PowerButton (primary action)
-- **Structure**: full-width capsule, 56pt high, with a symbol and label ("프록시 시작" / "프록시 중지").
+- **Structure**: full-width capsule, 56pt high, with a symbol and label ("Start Proxy" / "Stop Proxy").
 - **Variants**: start = accent fill with white label; stop = `.secondarySystemFill` fill with primary label.
 - **States**: pressed (scale 0.97, 120ms), disabled (opacity 0.4). A success haptic plays on start and a light haptic on stop.
 
@@ -94,7 +94,7 @@ Each component lives in `Sources/Design/Components.swift`.
 - LabeledContent with mono value plus a trailing copy button. Copying plays a haptic and swaps the symbol to a checkmark for 1.5s.
 
 ### SetupStep (onboarding / Mac guide)
-- Numbered circle, title, and body. Used in onboarding and in the "다른 기기 연결 방법" screen.
+- Numbered circle, title, and body. Used in onboarding and in the "Connect Other Devices" screen.
 
 ## 6. Motion & Interaction
 
@@ -129,5 +129,5 @@ Constraints:
 Accepted debt:
 | Item | Location | Why accepted | Exit |
 |---|---|---|---|
-| Korean-only UI strings | all views | Primary user is Korean. Strings are inline literals, so a String Catalog can be extracted later. | Add `Localizable.xcstrings` when an English user appears |
+| English-only UI strings | all views | The UI ships in English only (user requirement). Strings are inline literals, so a String Catalog can be extracted later. | Add `Localizable.xcstrings` if another locale is needed |
 | Widget refresh relies on app pushing reloads | Widget | iOS limits background refresh, and the app is the source of truth | — |

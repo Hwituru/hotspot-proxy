@@ -20,11 +20,11 @@ struct MainView: View {
                 .padding(.bottom, Space.xxl)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("핫스팟 프록시")
+            .navigationTitle("Hotspot Proxy")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { showSettings = true } label: { Image(systemName: "gearshape") }
-                        .accessibilityLabel("설정")
+                        .accessibilityLabel("Settings")
                 }
             }
             .navigationDestination(for: Guide.self) { g in
@@ -45,13 +45,13 @@ struct MainView: View {
             ? AnyLayout(VStackLayout(spacing: Space.s))
             : AnyLayout(HStackLayout(spacing: Space.s))
         return layout {
-            StatTile(symbol: "point.3.connected.trianglepath.dotted", label: "활성 연결") {
+            StatTile(symbol: "point.3.connected.trianglepath.dotted", label: "Connections") {
                 Text(verbatim: String(m.connections))
             }
-            StatTile(symbol: "arrow.up.arrow.down", label: "전송량") {
+            StatTile(symbol: "arrow.up.arrow.down", label: "Transferred") {
                 Text(Format.bytes(m.bytes))
             }
-            StatTile(symbol: "clock", label: "가동 시간") {
+            StatTile(symbol: "clock", label: "Uptime") {
                 if let start = m.startedAt, m.running {
                     TimelineView(.periodic(from: .now, by: 1)) { ctx in
                         Text(Duration.seconds(max(0, ctx.date.timeIntervalSince(start))),
@@ -68,11 +68,11 @@ struct MainView: View {
     private var guideLink: some View {
         VStack(spacing: 0) {
             NavigationLink(value: Guide.connect) {
-                GuideRow(symbol: "laptopcomputer.and.iphone", title: "다른 기기 연결 방법", subtitle: "iPhone · Mac · Android · Windows")
+                GuideRow(symbol: "laptopcomputer.and.iphone", title: "Connect Other Devices", subtitle: "iPhone · Mac · Android · Windows")
             }
             Divider().padding(.leading, 56)
             NavigationLink(value: Guide.mac) {
-                GuideRow(symbol: "macbook", title: "Mac 자동 연결 (TUN)", subtitle: "핫스팟에 붙으면 모든 트래픽 자동 프록시")
+                GuideRow(symbol: "macbook", title: "Mac Auto-Connect (TUN)", subtitle: "Route all Mac traffic automatically on hotspot")
             }
         }
         .buttonStyle(.plain)

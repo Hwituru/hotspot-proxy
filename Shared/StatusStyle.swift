@@ -28,19 +28,19 @@ extension ProxySnapshot.Status {
 
     var title: String {
         switch self {
-        case .running: "프록시 실행 중"
-        case .noHotspot: "핫스팟 꺼짐"
-        case .stopped: "프록시 꺼짐"
-        case .error: "오류"
+        case .running: "Proxy Running"
+        case .noHotspot: "Hotspot Off"
+        case .stopped: "Proxy Off"
+        case .error: "Error"
         }
     }
 
     var shortTitle: String {
         switch self {
-        case .running: "실행 중"
-        case .noHotspot: "핫스팟 꺼짐"
-        case .stopped: "꺼짐"
-        case .error: "오류"
+        case .running: "Running"
+        case .noHotspot: "Hotspot Off"
+        case .stopped: "Off"
+        case .error: "Error"
         }
     }
 }

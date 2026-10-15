@@ -4,7 +4,7 @@ options:
   deploymentTarget:
     iOS: "17.0"
   createIntermediateGroups: true
-  developmentLanguage: ko
+  developmentLanguage: en
 settings:
   base:
     DEVELOPMENT_TEAM: 5DUM8WPB4C
@@ -36,13 +36,13 @@ targets:
     info:
       path: Sources/Info.plist
       properties:
-        CFBundleDisplayName: 핫스팟 프록시
+        CFBundleDisplayName: Hotspot Proxy
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen:
           UIColorName: LaunchBackground
         UIBackgroundModes: [audio]
-        NSLocalNetworkUsageDescription: 핫스팟에 연결된 기기의 프록시 요청을 받기 위해 필요합니다.
+        NSLocalNetworkUsageDescription: Needed to accept proxy connections from devices on your Personal Hotspot.
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         ITSAppUsesNonExemptEncryption: false
         CFBundleURLTypes:
@@ -68,7 +68,7 @@ targets:
     info:
       path: Widget/Info.plist
       properties:
-        CFBundleDisplayName: 핫스팟 프록시
+        CFBundleDisplayName: Hotspot Proxy
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:

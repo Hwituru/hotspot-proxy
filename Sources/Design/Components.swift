@@ -90,8 +90,8 @@ struct StatusHero: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
                     .textSelection(.enabled)
-                    .accessibilityLabel("접속 주소 \(endpoint.replacingOccurrences(of: ":", with: " 포트 "))")
-                Text("다른 기기의 프록시 서버로 입력하세요")
+                    .accessibilityLabel("Proxy address \(endpoint.replacingOccurrences(of: ":", with: " port "))")
+                Text("Enter this as the proxy server on other devices")
                     .font(.callout)
                     .foregroundStyle(.secondary)
                 Button {
@@ -100,7 +100,7 @@ struct StatusHero: View {
                         Task { try? await Task.sleep(for: .seconds(1.5)); copied = false }
                     }
                 } label: {
-                    Label(copied ? "복사됨" : "주소 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
+                    Label(copied ? "Copied" : "Copy Address", systemImage: copied ? "checkmark" : "doc.on.doc")
                         .font(.subheadline.weight(.semibold))
                         .contentTransition(.symbolEffect(.replace))
                         .padding(.horizontal, Space.l)
@@ -109,17 +109,17 @@ struct StatusHero: View {
                 .buttonStyle(.bordered)
                 .buttonBorderShape(.capsule)
                 .padding(.top, Space.s)
-                .accessibilityLabel("주소 복사")
+                .accessibilityLabel("Copy address")
             }
         case .noHotspot:
-            Text("개인용 핫스팟을 켜 주세요")
+            Text("Turn On Personal Hotspot")
                 .font(.title2.weight(.semibold))
                 .multilineTextAlignment(.center)
-            Text("설정 › 개인용 핫스팟에서 ‘다른 사람의 연결 허용’을 켜면 접속 주소가 표시됩니다.")
+            Text("Go to Settings › Personal Hotspot and enable ‘Allow Others to Join’. The proxy address appears here once it’s on.")
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            Button("설정 열기") {
+            Button("Open Settings") {
                 if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
             }
             .buttonStyle(.bordered)
@@ -127,14 +127,14 @@ struct StatusHero: View {
             .frame(minHeight: 44)
             .padding(.top, Space.s)
         case .stopped:
-            Text("프록시가 꺼져 있습니다")
+            Text("Proxy Is Off")
                 .font(.title2.weight(.semibold))
-            Text("아래 버튼으로 시작하면 핫스팟에 연결된 기기가 이 아이폰을 거쳐 인터넷을 씁니다.")
+            Text("Start it below and devices on your hotspot will reach the internet through this iPhone.")
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         case .error:
-            Text("프록시를 시작하지 못했습니다")
+            Text("Couldn’t Start the Proxy")
                 .font(.title2.weight(.semibold))
             if let errorMessage {
                 Text(errorMessage)
@@ -142,7 +142,7 @@ struct StatusHero: View {
                     .foregroundStyle(.red)
                     .multilineTextAlignment(.center)
             }
-            Button("다시 시도", action: onRetry)
+            Button("Try Again", action: onRetry)
                 .buttonStyle(.bordered)
                 .buttonBorderShape(.capsule)
                 .frame(minHeight: 44)
@@ -171,7 +171,7 @@ struct PowerButton: View {
             tick += 1
             action()
         } label: {
-            Label(running ? "프록시 중지" : "프록시 시작", systemImage: running ? "stop.fill" : "play.fill")
+            Label(running ? "Stop Proxy" : "Start Proxy", systemImage: running ? "stop.fill" : "play.fill")
                 .font(.headline)
                 .frame(maxWidth: .infinity, minHeight: 56)
                 .foregroundStyle(running ? Color.primary : Color.white)
@@ -180,7 +180,7 @@ struct PowerButton: View {
         }
         .buttonStyle(PressScaleStyle())
         .sensoryFeedback(running ? .success : .impact(weight: .light), trigger: tick)
-        .accessibilityHint(running ? "핫스팟 기기의 프록시 연결을 끊습니다" : "핫스팟 기기가 이 아이폰을 프록시로 쓰게 합니다")
+        .accessibilityHint(running ? "Disconnects hotspot devices from the proxy" : "Lets hotspot devices use this iPhone as a proxy")
     }
 }
 
@@ -243,7 +243,7 @@ struct CopyableRow: View {
                     .frame(width: 44, height: 44)
             }
             .buttonStyle(.borderless)
-            .accessibilityLabel("\(title) 복사")
+            .accessibilityLabel("Copy \(title)")
         }
         .sensoryFeedback(.impact(weight: .light), trigger: copied) { _, new in new }
     }
@@ -269,6 +269,6 @@ struct SetupStep: View {
             }
         }
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(number)단계. \(title). \(detail)")
+        .accessibilityLabel("Step \(number). \(title). \(detail)")
     }
 }

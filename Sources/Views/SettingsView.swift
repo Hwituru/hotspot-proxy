@@ -20,7 +20,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section {
-                    LabeledContent("포트") {
+                    LabeledContent("Port") {
                         TextField("8080", text: $portText)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
@@ -28,70 +28,70 @@ struct SettingsView: View {
                             .focused($portFocused)
                             .foregroundStyle(portValid || portText.isEmpty ? Color.primary : Color.red)
                             .onSubmit(commitPort)
-                            .accessibilityLabel("포트 번호")
+                            .accessibilityLabel("Port number")
                     }
                     .disabled(m.running)
-                    Toggle("앱 실행 시 자동 시작", isOn: $m.autoStart)
+                    Toggle("Start on Launch", isOn: $m.autoStart)
                 } header: {
-                    Text("프록시")
+                    Text("Proxy")
                 } footer: {
                     if m.running {
-                        Text("포트를 바꾸려면 먼저 프록시를 중지하세요.")
+                        Text("Stop the proxy to change the port.")
                     } else if !portValid && !portText.isEmpty {
-                        Text("1024에서 65535 사이의 숫자를 입력하세요.").foregroundStyle(.red)
+                        Text("Enter a number between 1024 and 65535.").foregroundStyle(.red)
                     } else {
-                        Text("HTTP, HTTPS, SOCKS5 모두 같은 포트를 사용합니다.")
+                        Text("HTTP, HTTPS, and SOCKS5 all share this port.")
                     }
                 }
 
                 Section {
                     if m.addresses.isEmpty {
-                        Text("활성 네트워크 인터페이스가 없습니다").foregroundStyle(.secondary)
+                        Text("No active network interfaces").foregroundStyle(.secondary)
                     }
                     ForEach(m.addresses, id: \.0) { a in
-                        CopyableRow(title: a.0.hasPrefix("bridge") ? "\(a.0) · 핫스팟" : a.0, value: a.1)
+                        CopyableRow(title: a.0.hasPrefix("bridge") ? "\(a.0) · Hotspot" : a.0, value: a.1)
                     }
                 } header: {
-                    Text("네트워크 인터페이스")
+                    Text("Network Interfaces")
                 } footer: {
-                    Text("bridge로 시작하는 인터페이스가 개인용 핫스팟입니다. 다른 기기는 이 주소로 접속합니다.")
+                    Text("Interfaces starting with “bridge” are your Personal Hotspot. Other devices connect to that address.")
                 }
 
-                Section("도움말") {
+                Section("Help") {
                     NavigationLink { ConnectGuideView() } label: {
-                        Label("다른 기기 연결 방법", systemImage: "laptopcomputer.and.iphone")
+                        Label("Connect Other Devices", systemImage: "laptopcomputer.and.iphone")
                     }
                     NavigationLink { MacSetupView() } label: {
-                        Label("Mac 자동 연결 (TUN)", systemImage: "macbook")
+                        Label("Mac Auto-Connect (TUN)", systemImage: "macbook")
                     }
                     Button {
                         hasOnboarded = false
                         dismiss()
                     } label: {
-                        Label("온보딩 다시 보기", systemImage: "sparkles")
+                        Label("Show Welcome Again", systemImage: "sparkles")
                     }
                 }
 
                 Section {
-                    LabeledContent("버전", value: version)
+                    LabeledContent("Version", value: version)
                     Link(destination: URL(string: "https://github.com/Indosaram/hotspot-proxy")!) {
-                        Label("GitHub 저장소", systemImage: "chevron.left.forwardslash.chevron.right")
+                        Label("GitHub Repository", systemImage: "chevron.left.forwardslash.chevron.right")
                     }
                 } header: {
-                    Text("정보")
+                    Text("About")
                 } footer: {
-                    Text("백그라운드에서 프록시를 유지하기 위해 소리 없는 오디오를 재생합니다. 프록시를 중지하면 함께 멈춥니다.")
+                    Text("To keep the proxy running in the background, the app plays silent audio. It stops when you stop the proxy.")
                 }
             }
-            .navigationTitle("설정")
+            .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("완료") { commitPort(); dismiss() }
+                    Button("Done") { commitPort(); dismiss() }
                 }
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    Button("확인") { commitPort(); portFocused = false }
+                    Button("Apply") { commitPort(); portFocused = false }
                 }
             }
             .onAppear { portText = String(m.port) }

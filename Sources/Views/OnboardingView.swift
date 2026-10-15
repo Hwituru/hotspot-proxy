@@ -5,16 +5,16 @@ struct OnboardingView: View {
     @State private var page = 0
 
     private let pages: [(ProxySnapshot.Status, String, String)] = [
-        (.running, "아이폰을 프록시로", "핫스팟에 연결된 Mac, iPad, 노트북이 이 아이폰을 거쳐 인터넷을 씁니다. HTTP · HTTPS · SOCKS5를 한 포트에서 받습니다."),
-        (.noHotspot, "핫스팟을 켜 주세요", "설정 › 개인용 핫스팟에서 ‘다른 사람의 연결 허용’을 켭니다. 처음 시작할 때 로컬 네트워크 접근을 허용해 주세요."),
-        (.stopped, "백그라운드에서도 유지", "화면을 꺼도 프록시가 살아 있도록 소리 없는 오디오를 재생합니다. 잠금화면 위젯을 추가하면 상태와 주소를 바로 확인할 수 있습니다."),
+        (.running, "Your iPhone as a Proxy", "Macs, iPads, and laptops on your hotspot reach the internet through this iPhone. HTTP, HTTPS, and SOCKS5 on a single port."),
+        (.noHotspot, "Turn On Your Hotspot", "In Settings › Personal Hotspot, enable ‘Allow Others to Join’. Allow local network access when the app first asks."),
+        (.stopped, "Stays On in the Background", "Silent audio keeps the proxy alive with the screen off. Add the Lock Screen widget to see status and address at a glance."),
     ]
 
     var body: some View {
         VStack(spacing: 0) {
             HStack {
                 Spacer()
-                Button("건너뛰기") { isPresented = false }
+                Button("Skip") { isPresented = false }
                     .font(.body)
                     .frame(minHeight: 44)
                     .opacity(page < pages.count - 1 ? 1 : 0)
@@ -54,7 +54,7 @@ struct OnboardingView: View {
             .animation(Motion.standard, value: page)
             .padding(.bottom, Space.xl)
             .accessibilityElement()
-            .accessibilityLabel("\(page + 1) / \(pages.count) 페이지")
+            .accessibilityLabel("Page \(page + 1) of \(pages.count)")
 
             Button {
                 if page < pages.count - 1 {
@@ -63,7 +63,7 @@ struct OnboardingView: View {
                     isPresented = false
                 }
             } label: {
-                Text(page < pages.count - 1 ? "다음" : "시작하기")
+                Text(page < pages.count - 1 ? "Next" : "Get Started")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, minHeight: 56)

@@ -1,13 +1,13 @@
 import Foundation
 
-/// 앱 ↔ 위젯이 App Group으로 공유하는 프록시 상태 스냅샷.
-/// 앱은 상태가 바뀔 때 save() 후 WidgetCenter를 갱신하고, 위젯은 load()로 읽기만 한다.
+/// Proxy state shared between app and widget through the App Group.
+/// The app save()s and reloads WidgetCenter on change; the widget only load()s.
 struct ProxySnapshot: Codable, Equatable {
     enum Status: String, Codable {
-        case running      // 리스너 준비 완료, 핫스팟 켜짐
-        case noHotspot    // 프록시는 켜졌지만 핫스팟(bridge 인터페이스)이 없음
-        case stopped      // 사용자가 끔
-        case error        // 리스너 실패
+        case running      // listener ready, hotspot on
+        case noHotspot    // proxy on but no hotspot (bridge) interface
+        case stopped      // stopped by the user
+        case error        // listener failed
     }
 
     var status: Status
@@ -18,7 +18,7 @@ struct ProxySnapshot: Codable, Equatable {
     var errorMessage: String?
     var updatedAt: Date
 
-    /// 다른 기기에 입력할 "IP:포트". 핫스팟이 없으면 nil.
+    /// "IP:port" to enter on other devices; nil without a hotspot.
     var endpoint: String? { hotspotIP.map { "\($0):\(port)" } }
 
     static let placeholder = ProxySnapshot(status: .running, hotspotIP: "172.20.10.1", port: 8080,
@@ -46,7 +46,7 @@ enum SharedStore {
     }
 }
 
-/// 위젯/외부에서 앱을 여는 딥링크. hotspotproxy://open | hotspotproxy://start | hotspotproxy://stop | hotspotproxy://copy
+/// Deep links that open or control the app from widgets and Shortcuts. hotspotproxy://open | hotspotproxy://start | hotspotproxy://stop | hotspotproxy://copy
 enum DeepLink: String {
     case open, start, stop, toggle, copy
     var url: URL { URL(string: "hotspotproxy://\(rawValue)")! }

@@ -2,7 +2,7 @@ import Foundation
 import Network
 import os
 
-/// HTTP(CONNECT 포함) + SOCKS5 를 같은 포트에서 받는 프록시.
+/// Proxy serving HTTP (incl. CONNECT) and SOCKS5 on the same port.
 final class ProxyServer {
     let queue = DispatchQueue(label: "proxy", qos: .userInitiated)
     private var listener: NWListener?
@@ -11,7 +11,7 @@ final class ProxyServer {
     var onState: ((String?) -> Void)?
     private let bytes = OSAllocatedUnfairLock(initialState: UInt64(0))
     private lazy var udp = UdpRelay(queue: queue)
-    /// 세션마다 직렬 큐를 두고 이 동시 큐를 타깃으로 → 연결들이 여러 코어에서 병렬 처리
+    /// Each session gets a serial queue targeting this concurrent queue, so connections run in parallel across cores.
     private let work = DispatchQueue(label: "proxy.sessions", qos: .userInitiated, attributes: .concurrent)
 
     func start(port: UInt16) {
@@ -24,7 +24,7 @@ final class ProxyServer {
             l.stateUpdateHandler = { [weak self] s in
                 switch s {
                 case .ready: self?.onState?(nil)
-                case .failed(let e): self?.onState?("리스너 오류: \(e)")
+                case .failed(let e): self?.onState?("Listener error: \(e)")
                 default: break
                 }
             }
@@ -35,7 +35,7 @@ final class ProxyServer {
                 udp.start(port: port)
             }
         } catch {
-            onState?("시작 실패: \(error)")
+            onState?("Failed to start: \(error)")
         }
     }
 
@@ -58,7 +58,7 @@ final class ProxyServer {
         s.queue.async { s.start() }
     }
 
-    /// UI가 보일 때만 호출됨 (백그라운드에선 메인 스레드를 깨우지 않음)
+    /// Called only while the UI is visible (never wakes the main thread in background).
     private func report() {
         let n = live.count, b = bytes.withLock { $0 }
         onStats?(n, b)
@@ -84,7 +84,7 @@ final class Session {
     let queue: DispatchQueue
     var buf = Data()
     var closed = false
-    private var finished = 0   // 양방향 중 EOF로 끝난 방향 수 (2가 되면 종료)
+    private var finished = 0   // directions that hit EOF; session closes at 2
     var onBytes: ((Int) -> Void)?
     var onClose: (() -> Void)?
 
@@ -161,7 +161,7 @@ final class Session {
         }
     }
 
-    /// UDP ASSOCIATE: 같은 IP/포트의 UDP 릴레이 주소를 알려주고, TCP가 끊길 때까지 유지
+    /// UDP ASSOCIATE: reply with the UDP relay on the same IP/port and hold until the TCP control connection closes.
     private func udpAssociate() {
         var resp = Data([5, 0, 0, 1, 0, 0, 0, 0, 0, 0])
         if case .hostPort(let h, let p)? = client.currentPath?.localEndpoint, case .ipv4(let v4) = h {
@@ -271,7 +271,7 @@ final class Session {
         relay(from: up, to: client)
     }
 
-    /// 한 방향이 EOF면 상대에게 FIN만 전달(half-close)하고, 반대 방향은 계속 흘려보낸다.
+    /// On EOF in one direction, forward only a FIN (half-close) and keep relaying the other direction.
     private func relay(from: NWConnection, to: NWConnection) {
         from.receive(minimumIncompleteLength: 1, maximumLength: Tcp.chunk) { [weak self] data, _, done, err in
             guard let self, !self.closed else { return }

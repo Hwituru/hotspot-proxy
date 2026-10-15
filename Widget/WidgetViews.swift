@@ -19,9 +19,9 @@ struct StatusWidgetView: View {
     }
 
     private var accessibilityText: String {
-        var t = "핫스팟 프록시, \(snapshot.status.title)"
+        var t = "Hotspot Proxy, \(snapshot.status.title)"
         if let ip = snapshot.hotspotIP, snapshot.status == .running {
-            t += ", 주소 \(ip) 포트 \(snapshot.port), 연결 \(snapshot.connections)개"
+            t += ", address \(ip) port \(snapshot.port), \(snapshot.connections) connections"
         }
         return t
     }
@@ -30,13 +30,13 @@ struct StatusWidgetView: View {
 extension ProxySnapshot {
     var guidance: String {
         switch status {
-        case .running: endpoint ?? "주소 없음"
-        case .noHotspot: "개인용 핫스팟을 켜세요"
-        case .stopped: "탭해서 앱 열기"
-        case .error: errorMessage ?? "앱에서 다시 시도"
+        case .running: endpoint ?? "No address"
+        case .noHotspot: "Turn on Personal Hotspot"
+        case .stopped: "Tap to open"
+        case .error: errorMessage ?? "Retry in the app"
         }
     }
-    var statsLine: String { "연결 \(connections) · \(Format.bytes(bytes))" }
+    var statsLine: String { "\(connections) conn · \(Format.bytes(bytes))" }
 }
 
 private struct CircularView: View {
@@ -93,7 +93,7 @@ private struct InlineView: View {
 
     var body: some View {
         ViewThatFits {
-            Label(s.status == .running ? "프록시 \(s.endpoint ?? "")" : "프록시 \(s.status.shortTitle)",
+            Label(s.status == .running ? "Proxy \(s.endpoint ?? "")" : "Proxy \(s.status.shortTitle)",
                   systemImage: s.status.symbol)
             Label(s.status.shortTitle, systemImage: s.status.symbol)
         }

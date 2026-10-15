@@ -1,9 +1,9 @@
 #!/bin/bash
-# 사용법: sudo ~/code/project/hotspot-proxy/mac/install-tailscale.sh  (한 번만)
-# GUI Tailscale 앱 대신 CLI tailscaled를 자동 시작 서비스로 등록한다.
+# Usage: sudo bash mac/install-tailscale.sh  (once)
+# Replaces the GUI Tailscale app with the CLI tailscaled as a launchd service.
 set -euo pipefail
 cd "$(dirname "$0")"
-[ "$EUID" -eq 0 ] || { echo "sudo 로 실행하세요"; exit 1; }
+[ "$EUID" -eq 0 ] || { echo "Run with sudo"; exit 1; }
 osascript -e 'quit app "Tailscale"' 2>/dev/null || true
 pkill -x Tailscale 2>/dev/null || true
 pkill -x tailscaled 2>/dev/null || true

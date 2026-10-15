@@ -1,8 +1,8 @@
 import Foundation
 import Network
 
-/// SOCKS5 UDP ASSOCIATE 릴레이. TCP와 같은 포트 번호의 UDP 소켓에서 받는다.
-/// 클라이언트 흐름별로 목적지 NWConnection을 만들고, 60초 유휴 시 정리(저전력).
+/// SOCKS5 UDP ASSOCIATE relay, listening on a UDP socket with the same port number as TCP.
+/// One destination NWConnection per client flow; flows idle for 60s are reaped (low power).
 final class UdpRelay {
     private let queue: DispatchQueue
     private var listener: NWListener?
